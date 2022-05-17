@@ -1,9 +1,16 @@
-const accordion = document.querySelectorAll('.accordion')
+const acc = document.querySelectorAll('.accordion')
+let i
 
-accordion.forEach(function (e) {
-    e.addEventListener('click', function () {
-        let panel = e.querySelector('.panel')
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener('click', function() {
+        this.classList.toggle('active')
 
-        panel.style.display = 'block'
+        var panel = this.nextElementSibling
+        if (panel.style.display === 'block') {
+            panel.style.display = 'none'
+        } else {
+            panel.style.display = 'block'
+        }
     })
-})
+}
+
